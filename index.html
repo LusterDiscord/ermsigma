@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get to Know Cry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            background-color: #f9f9f9;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: none;
+        }
+
+        .custom-cursor {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #000;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        ::selection {
+            background: none;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            animation: fadeIn 2s ease-in-out;
+            position: relative;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            color: #fff;
+            animation: fadeInText 1.5s ease-in-out forwards;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .button {
+            display: inline-block;
+            margin: 20px 10px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: none;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            border: none;
+            border-radius: 8px;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            animation: slideInFromBottom 1s ease-in-out;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #0056b3, #007bff);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+        }
+
+        .button i {
+            margin-right: 10px;
+        }
+
+        .info {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: #ddd;
+            animation: slideInFromBottom 1s ease-in-out;
+        }
+
+        .credits {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.9rem;
+            color: #ccc;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInText {
+            from { color: transparent; }
+            to { color: #fff; }
+        }
+
+        @keyframes slideInFromBottom {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            animation: dotDrizzle 15s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes dotDrizzle {
+            0% {
+                transform: translateY(-100px) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(800px) rotate(360deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(1400px) rotate(720deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+
+            .info {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="container">
+        <h1>About Me</h1>
+
+        <button class="button" onclick="window.location.href='https://discord.gg/spinbot'"><i class="fas fa-code"></i> My discord server</button>
+        <button class="button" onclick="window.location.href='https://www.youtube.com/channel/UCuktdIsyFa6i01vm1u6lW7w'"><i class="fas fa-dumbbell"></i> My youtube channel</button>
+
+        <div class="info">
+            <p>Hey there! I'm Cry, I enjoy coding, Gaming, And Fitness! So click the buttons above to follow my journey!</p>
+            <p>Page views: <span id="viewCount"></span></p>
+        </div>
+    </div>
+
+    <div class="credits">Made by Cry</div>
+    <div class="dot" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="dot" style="left: 30%; animation-delay: 2s;"></div>
+    <div class="dot" style="left: 50%; animation-delay: 4s;"></div>
+    <div class="dot" style="left: 70%; animation-delay: 6s;"></div>
+    <div class="dot" style="left: 90%; animation-delay: 8s;"></div>
+
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+    <script>
+        // Dynamically set background image
+        document.body.style.backgroundImage = "url('https://yourimageurl.com/background.jpg')";
+
+        // Custom cursor functionality
+        document.addEventListener('mousemove', function(e) {
+            const cursor = document.getElementById('customCursor');
+            cursor.style.left = e.pageX + 'px';
+            cursor.style.top = e.pageY + 'px';
+        });
+
+        // Page view counter
+        function incrementPageView() {
+            if (localStorage.pageViews) {
+                localStorage.pageViews = Number(localStorage.pageViews) + 1;
+            } else {
+                localStorage.pageViews = 1;
+            }
+            document.getElementById('viewCount').textContent = localStorage.pageViews;
+        }
+
+        incrementPageView();
+    </script>
+</body>
+</html>
+ 
